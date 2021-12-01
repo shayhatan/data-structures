@@ -59,15 +59,16 @@ public:
 
     const T &getMaxValue() const {
 
-        if (!head)
+        if (!head) {
             throw EmptyTreeException{};
-
+        }
         return getMax(head);
     }
 
     const T &getMinValue() const {
-        if (!head)
+        if (!head) {
             throw EmptyTreeException{};
+        }
 
         return getMin(head);
     }
