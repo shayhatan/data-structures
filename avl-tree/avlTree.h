@@ -11,11 +11,17 @@
 
 /*
  * BALANCE FACTOR {-1, 0 , 1};
- *              which means that if the and int number is in one of those then the tree is balanced
- *              if not balance we have 4 diff types of rotations {left-left, left-right, right-right, right-left}
+ *              if  sub between left and right sub trees,
+ *              if the result is in the range of BALANCE FACTOR {-1, 0 , 1}
+ *              then the current sub tree we checked is balanced, other wise not.
+ *
+ *
+ *              if not balanced we have 4 diff types of rotations {left-left, left-right, right-right, right-left}
  *              will know how to rotate by sign -
  *                  "-" - means left
  *                  "+" - means right
+ *
+ *
  */
 
 
