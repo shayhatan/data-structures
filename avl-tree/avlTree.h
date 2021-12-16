@@ -11,12 +11,12 @@
 
 /*
  * BALANCE FACTOR {-1, 0 , 1};
- *              if  sub between left and right sub trees,
- *              if the result is in the range of BALANCE FACTOR {-1, 0 , 1}
+ *              The sub between left and right of a current subtree is indicating if current subtree is balanced or not,
+ *              If the result is in the range of BALANCE FACTOR {-1, 0 , 1}
  *              then the current sub tree we checked is balanced, other wise not.
  *
  *
- *              if not balanced we have 4 diff types of rotations {left-left, left-right, right-right, right-left}
+ *              If not balanced we have 4 diff types of rotations {left-left, left-right, right-right, right-left}
  *              will know how to rotate by sign -
  *                  "-" - means left
  *                  "+" - means right
