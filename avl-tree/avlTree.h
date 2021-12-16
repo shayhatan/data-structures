@@ -313,6 +313,38 @@ void AVL<T>::remove(const T &data) {
     head = removeNode(p_data, head);
 }
 
+template<class T>
+void AVL<T>::printLevelOrder() {
+    int h = height(head);
+    for (int i = 0; i <= h; ++i) {
+        printGivenLevel(head, i);
+        std::cout << std::endl;
+    }
+}
+
+template<class T>
+bool AVL<T>::contain(const T &data) {
+    if (!head) {
+        return false;
+    }
+    const T *p_data = &data;
+    Node *r = head;
+    return contain(p_data, r);
+}
+
+template<class T>
+void AVL<T>::insert(const T &data) {
+    Node *new_node = new Node(new T(data));
+    if (head->data) {
+        //not the first node
+        head = insertNode(new_node, head);
+    } else {
+        //inserting the first node
+        head = new_node;
+    }
+}
+
+
 
 /*
         private methods and structs
@@ -398,18 +430,6 @@ bool AVL<T>::rightLeftUnbalance(AVL::Node *new_node, AVL::Node *r, int balance_f
 
 
 template<class T>
-void AVL<T>::insert(const T &data) {
-    Node *new_node = new Node(new T(data));
-    if (head->data) {
-        //not the first node
-        head = insertNode(new_node, head);
-    } else {
-        //inserting the first node
-        head = new_node;
-    }
-}
-
-template<class T>
 void AVL<T>::inOrderTraversal(AVL::Node *node) {
     if (node->left) {
         inOrderTraversal(node->left);
@@ -431,38 +451,6 @@ void AVL<T>::printGivenLevel(AVL::Node *r, int level) {
         printGivenLevel(r->left, level - 1);
         printGivenLevel(r->right, level - 1);
     }
-}
-
-template<class T>
-void AVL<T>::printLevelOrder() {
-    int h = height(head);
-    for (int i = 0; i <= h; ++i) {
-        printGivenLevel(head, i);
-        std::cout << std::endl;
-    }
-}
-
-template<class T>
-bool AVL<T>::contain(const T &data) {
-    if (!head) {
-        return false;
-    }
-    const T *p_data = &data;
-    Node *r = head;
-    return contain(p_data, r);
-}
-
-template<class T>
-bool AVL<T>::contain(const T *p_data, AVL::Node *r) {
-    if (r == nullptr) {
-        return false;
-    }
-    if (*p_data < *r->data) {
-        return contain(p_data, r->left);
-    } else if (*r->data < *p_data) {
-        return contain(p_data, r->right);
-    }
-    return true;
 }
 
 
