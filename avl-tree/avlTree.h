@@ -449,7 +449,7 @@ void AVL<T>::inOrderTraversal(AVL::Node *node) {
 
 template<class T>
 void AVL<T>::printGivenLevel(AVL::Node *r, int level) {
-    if (r == NULL) {
+    if (r == nullptr) {
         return;
     } else if (level == 0) {
         std::cout << *r->data << " ";
