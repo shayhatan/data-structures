@@ -108,7 +108,7 @@ private:
     }
 
     static Node *rightRotate(Node *z) {
-        // we want to rotate y with z, x = inserted, z= root  - (z's left is y's left is x is the new node)
+        // we want to rotate y with z, x = inserted, z= root  - (z's left is y's left is x)
         Node *y = z->left;
         Node *sub_tree = y->right;
         // rotate right - y with z
@@ -118,7 +118,7 @@ private:
     }
 
     static Node *leftRotate(Node *z) {
-        // we want to rotate y with z, x = inserted, z= root  - (z's right is y's right is x is the new node)
+        // we want to rotate y with z, x = inserted, z= root  - (z's right is y's right is x)
         Node *y = z->right;
         Node *sub_tree = y->left;
         // rotate right - y with z
