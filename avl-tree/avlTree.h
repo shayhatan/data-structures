@@ -108,7 +108,7 @@ private:
     }
 
     static Node *rightRotate(Node *z) {
-        // we want to rotate y with z, x = inserted, z= root  - (z left is y left is x)
+        // we want to rotate y with z, x = inserted, z= root  - (z's left is y's left is x is the new node)
         Node *y = z->left;
         Node *sub_tree = y->right;
         // rotate right - y with z
@@ -118,7 +118,7 @@ private:
     }
 
     static Node *leftRotate(Node *z) {
-        // we want to rotate y with z, x = inserted, z= root  - (z right is right left is x)
+        // we want to rotate y with z, x = inserted, z= root  - (z's right is y's right is x is the new node)
         Node *y = z->right;
         Node *sub_tree = y->left;
         // rotate right - y with z
@@ -130,6 +130,7 @@ private:
     static Node *removeRotate(Node *r) {
         int balance_factor = getBalanceFactor(r);
         // six option included when deleting from the bottom while 4 of them
+        // rather do just one rotation, hence zero included
         if (r && balance_factor == 2 && getBalanceFactor(r->left) >= 0) {
             return rightRotate(r);
         } else if (r && balance_factor == 2 && getBalanceFactor(r->left) == -1) {
@@ -166,7 +167,7 @@ private:
             }
         } else {
             //no duplicates
-            free(new_node);
+            delete (new_node);
             return curr_root;
         }
 
@@ -410,6 +411,7 @@ int AVL<T>::getBalanceFactor(AVL::Node *node) {
     return height(node->left) - height(node->right);
 }
 
+//because of the recursion we dont know who the root is
 template<class T>
 bool AVL<T>::leftLeftUnbalance(AVL::Node *new_node, AVL::Node *r, int balance_factor) {
     return (balance_factor > 1 && r->left
