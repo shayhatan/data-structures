@@ -256,7 +256,6 @@ void BinarySearchTree<T>::insertCurrent(BinarySearchTree::Node *here, BinarySear
         here->right = new Node(new T(*(that->right->data)));
         insertCurrent(here->right, that->right);
     }
-
 }
 
 template<class T>
