@@ -44,7 +44,7 @@ public:
 
     BinarySearchTree(const BinarySearchTree &other);
 
-    BinarySearchTree &operator=(const BinarySearchTree &other);
+    BinarySearchTree &operator =(const BinarySearchTree &other);
 
     void insert(const T &data) {
         if (head->data) {
